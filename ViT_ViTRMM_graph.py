@@ -18,8 +18,8 @@ def evaluate_performance(conf):
     acsf = round(2*acsa*acsp/(acsa+acsp),2)
     return acsa,acsp,acsf
 
-outputpath = 'D:/Simpi/Work/mlp_mixer_transformer_cnn/output'
-datasets = ['col_hist','ISIC18','cbis_ddsm_5class','chestxray2','Fundus','PBC'] 
+outputpath = './output/'
+datasets = ['Colorectal Histology','ISIC18','CBIS_DDSM','Chestxray','Fundus','PBC'] 
 title = ['Colorectal Histology','ISIC18','CBIS_DDSM','Chestxray','Fundus','PBC'] 
 fontsize = 18
 epoch = 100
@@ -33,7 +33,7 @@ color = ['#F17720','#0474BA']
 count = 1
 for d,t in zip(datasets,title):
     ax = plt.subplot(1,1,1)
-    folders = ['ViT','ViTRMM']
+    folders = ['ViT','ViT-R-MM']
     count = 0
     for i in folders:
         a = np.load(os.path.join(outputpath,d,i,'Record.npz'))

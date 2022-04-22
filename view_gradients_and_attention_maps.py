@@ -21,7 +21,7 @@ batch_size = 16
 input_size = 224
 seed = 0
 fileEnd ='.h5'
-path = 'D:/Simpi/Work/mlp_mixer_transformer_cnn/pyfiles/VIT_R_MM_medical_diagnostic_sol/output/' + data_name
+path = './output/' + data_name
 weight_path1 = path+'/ViT/model.h5' 
 weight_path2 = path +'/ViT-R-MM/model.h5'
 

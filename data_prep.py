@@ -68,6 +68,7 @@ for folder in dirs:
 np.savez(save_path+'/sample.npz', x, y)
 
 #%% Fundus
+
 import time
 import cv2
 
@@ -146,7 +147,9 @@ import os
 
 path = './Kather_texture_2016_image_tiles_5000' # add data path here
 save_path = './data/Colorectal Histolgy' # add path to save the data
-
+if not os.path.exists(save_path):
+    os.makedirs(save_path) 
+    
 x = []
 y = []
 dirs = os.listdir(path)
@@ -181,8 +184,11 @@ classes = [0,1]
 y = []
 count = 0
 class_count = 0
-path = './chestxray2/train' # add data path here
-save_path = '' # add path to save the data
+path = './chestxray/train' # add train data path here
+save_path = './data/Chestxray' # add path to save the data
+if not os.path.exists(save_path):
+    os.makedirs(save_path) 
+    
 folders = ['NORMAl','PNEUMONIA']
 for folder in folders:
     file_name = os.listdir(os.path.join(path,folder))
@@ -196,14 +202,14 @@ for folder in folders:
         count += 1
         print(count)
     class_count += 1
-np.savez(save_path+'/chestxray2/train.npz', x, y,file_name)
+np.savez(save_path+'/train.npz', x, y,file_name)
 
 
 classes = [0,1]
 y = []
 count = 0
 class_count = 0
-path = './chestxray2/test' # add data path here
+path = './chestxray/test' # add test data path here
 folders = ['NORMAl','PNEUMONIA']
 for folder in folders:
     file_name = os.listdir(os.path.join(path,folder))
@@ -217,4 +223,4 @@ for folder in folders:
         count += 1
         print(count)
     class_count += 1
-np.savez(save_path+'/chestxray2/test.npz', x, y,file_name)
+np.savez(save_path+'/test.npz', x, y,file_name)

@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 
 def load_data(data_name):
 
-    if data_name == 'cbis_ddsm':
+    if data_name == 'CBIS_DDSM':
         images=[]
         labels=[]
         feature_dictionary = {
@@ -62,8 +62,8 @@ def load_data(data_name):
 
         
     elif data_name == 'Colorectal Histology':
-        path = 'D:/Simpi/data/retinopathy/data_train_test/'
-        temp = np.load(path+'/col_hist/sample.npz')
+        path = './data/Colorectal Histology/'
+        temp = np.load(path+'/sample.npz')
         data = temp['arr_0']
         label = temp['arr_1'] 
         del temp
@@ -72,7 +72,7 @@ def load_data(data_name):
         del data, label
         
     elif data_name == 'ISIC18':
-        path = 'D:/Simpi/data/retinopathy/data_train_test/isic18'
+        path = './data/ISIC18/'
         temp = np.load(path+'/sample.npz')
         data = temp['arr_0']
         label = temp['arr_1']
@@ -84,20 +84,20 @@ def load_data(data_name):
 
 
     elif data_name == 'Chestxray':
-        path = 'D:/Simpi/data/retinopathy/data_train_test/'
-        temp = np.load(path+'/chestxray2/train.npz')
+        path = './data/Chestxray/'
+        temp = np.load(path+'/train.npz')
         trainS = temp['arr_0']
         labelTr = np.asarray(temp['arr_1'],dtype = np.uint8)
         del temp
 
-        temp = np.load(path+'/chestxray2/test.npz')
+        temp = np.load(path+'/test.npz')
         testS = temp['arr_0']
         labelTs = np.asarray(temp['arr_1'],dtype = np.uint8)
         del temp
         
     elif data_name == 'PBC':
-        path = 'D:/Simpi/data/retinopathy/data_train_test/'
-        temp = np.load(path+'/PBC/sample.npz')
+        path = './data/PBC/'
+        temp = np.load(path+'/sample.npz')
         data = temp['arr_0']
         data1 = np.zeros((data.shape[0],data.shape[1],data.shape[2],data.shape[3]),dtype = np.float32)
         for i in range(data.shape[0]):
@@ -111,14 +111,14 @@ def load_data(data_name):
 
         
     elif data_name == 'Fundus':
-        path = 'D:/Simpi/data/retinopathy/data_train_test/'
-        temp = np.load(path+'/Fundus/train.npz')
+        path = './data/Fundus/'
+        temp = np.load(path+'/train.npz')
         trainS = np.asarray(temp['arr_0']/255,dtype = np.float32)
         #label = np.asarray(temp['arr_1'])
         labelTr = temp['arr_1'] 
         del temp
         
-        temp = np.load(path+'/Fundus/test.npz')
+        temp = np.load(path+'/test.npz')
         testS = np.asarray(temp['arr_0']/255,dtype = np.float32)
         #label = np.asarray(temp['arr_1'])
         labelTs = temp['arr_1'] 
